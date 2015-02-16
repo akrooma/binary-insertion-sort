@@ -1,0 +1,312 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;
+      charset=windows-1252">
+    <meta name="Author" content="Jaanus Poial">
+    <meta name="GENERATOR" content="Mozilla/4.76 [en] (Win98; U)
+      [Netscape]">
+    <title>Sorteerimised</title>
+  </head>
+  <body>
+    <h3 style="margin-left: 40px;"><big>Searching and Sorting</big></h3>
+    <div style="margin-left: 40px;"><span style="color: rgb(34, 34, 34);
+        font-family: Verdana, Arial, sans-serif; font-size: small;
+        font-style: normal; font-variant: normal; font-weight: normal;
+        letter-spacing: normal; line-height: 16.0029983520508px;
+        orphans: auto; text-align: left; text-indent: 0px;
+        text-transform: none; white-space: normal; widows: auto;
+        word-spacing: 0px; -webkit-text-stroke-width: 0px; display:
+        inline !important; float: none; background-color: rgb(255, 255,
+        255);">Write a Java (ver. 1.6) program to sort an interval of a
+        given list of<span class="Apple-converted-space">&nbsp;</span></span><code
+        style="margin: 0px; padding: 0px; font-style: normal;
+        font-weight: normal; font-family: monospace; line-height: 12px;
+        color: rgb(34, 34, 34); font-variant: normal; letter-spacing:
+        normal; orphans: auto; text-align: left; text-indent: 0px;
+        text-transform: none; white-space: normal; widows: auto;
+        word-spacing: 0px; -webkit-text-stroke-width: 0px;
+        background-color: rgb(255, 255, 255);">Comparable</code><span
+        style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; display: inline !important;
+        float: none; background-color: rgb(255, 255, 255);"><span
+          class="Apple-converted-space">&nbsp;</span>elements using
+        binary insertion sort method. Binary insertion method is a
+        modified insertion method that uses binary search to find the
+        insertion point. Your implementation has to be stable (has to
+        preserve the original order of equal elements). There are three
+        parameters to your program:<span class="Apple-converted-space">&nbsp;</span></span><br
+        style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; background-color: rgb(255, 255,
+        255);">
+      <span style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; display: inline !important;
+        float: none; background-color: rgb(255, 255, 255);">a - the list
+        to be sorted<span class="Apple-converted-space">&nbsp;</span></span><br
+        style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; background-color: rgb(255, 255,
+        255);">
+      <span style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; display: inline !important;
+        float: none; background-color: rgb(255, 255, 255);">left -
+        interval starting position index (included)<span
+          class="Apple-converted-space">&nbsp;</span></span><br
+        style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; background-color: rgb(255, 255,
+        255);">
+      <span style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; display: inline !important;
+        float: none; background-color: rgb(255, 255, 255);">right -
+        interval ending position index (excluded)<span
+          class="Apple-converted-space">&nbsp;</span></span><br
+        style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; background-color: rgb(255, 255,
+        255);">
+      <span style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; display: inline !important;
+        float: none; background-color: rgb(255, 255, 255);">You can only
+        modify the given interval of the list.<span
+          class="Apple-converted-space"> </span></span><br
+        style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; background-color: rgb(255, 255,
+        255);">
+      <br style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; background-color: rgb(255, 255,
+        255);">
+      <code style="margin: 0px; padding: 0px; font-style: normal;
+        font-weight: normal; font-family: monospace; line-height: 12px;
+        color: rgb(34, 34, 34); font-variant: normal; letter-spacing:
+        normal; orphans: auto; text-align: left; text-indent: 0px;
+        text-transform: none; white-space: normal; widows: auto;
+        word-spacing: 0px; -webkit-text-stroke-width: 0px;
+        background-color: rgb(255, 255, 255);">public static &lt;T
+        extends Object &amp; Comparable&lt;? super T&gt;&gt;<span
+          class="Apple-converted-space">&nbsp;</span><br>
+        &nbsp; &nbsp; &nbsp; void binaryInsertionSort (List&lt;T&gt; a,
+        int left, int right)</code><br>
+      <br>
+      Arrange a competition between different sorting methods:<br>
+      <ol>
+        <li>insertion sort</li>
+        <li>quicksort</li>
+        <li>binary insertion sort (your program)</li>
+        <li>Java API built-in sort</li>
+      </ol>
+      Create a long random list of comparable elements and provide a
+      copy of the same list to all methods during competition. Let the
+      size of the interval to be sorted be 64000, 128000, 256000 and
+      512000 elements (if your computer is slow make these numbers
+      smaller but arrange at least four rounds) . Measure the running
+      time of each method for each competition round and put this data
+      into a table in xls ("old" Excel) format. Create a line diagram to
+      illustrate the growth of running time depending on amount of data.
+      All four lines have to be on the same diagram (x-axis: amount of
+      data, y-axis: running time in ms). <br>
+      <br>
+      Measure only "clean" sorting time, average of several attempts
+      gives even better result.<br>
+      <br>
+      You have to upload both your program AND your xls-file with the
+      diagram to <a href="https://moodle.hitsa.ee/">Moodle</a> in time!<br>
+      <br>
+      <hr style="width: 100%; height: 2px;"> </div>
+    <h3 style="margin-left: 40px;"><big>Järjestamine ja otsimine</big></h3>
+    <br style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+      sans-serif; font-size: small; font-style: normal; font-variant:
+      normal; font-weight: normal; letter-spacing: normal; line-height:
+      16.0029983520508px; orphans: auto; text-align: left; text-indent:
+      0px; text-transform: none; white-space: normal; widows: auto;
+      word-spacing: 0px; -webkit-text-stroke-width: 0px;
+      background-color: rgb(255, 255, 255);">
+    <div style="margin-left: 40px;"><span style="color: rgb(34, 34, 34);
+        font-family: Verdana, Arial, sans-serif; font-size: small;
+        font-style: normal; font-variant: normal; font-weight: normal;
+        letter-spacing: normal; line-height: 16.0029983520508px;
+        orphans: auto; text-align: left; text-indent: 0px;
+        text-transform: none; white-space: normal; widows: auto;
+        word-spacing: 0px; -webkit-text-stroke-width: 0px; display:
+        inline !important; float: none; background-color: rgb(255, 255,
+        255);">Koostada Java (ver. 1.6) meetod, mis järjestab etteantud
+        võrraldavate (</span><code style="margin: 0px; padding: 0px;
+        font-style: normal; font-weight: normal; font-family: monospace;
+        line-height: 12px; color: rgb(34, 34, 34); font-variant: normal;
+        letter-spacing: normal; orphans: auto; text-align: left;
+        text-indent: 0px; text-transform: none; white-space: normal;
+        widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;
+        background-color: rgb(255, 255, 255);">Comparable</code><span
+        style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; display: inline !important;
+        float: none; background-color: rgb(255, 255, 255);">) elementide
+        listis (</span><code style="margin: 0px; padding: 0px;
+        font-style: normal; font-weight: normal; font-family: monospace;
+        line-height: 12px; color: rgb(34, 34, 34); font-variant: normal;
+        letter-spacing: normal; orphans: auto; text-align: left;
+        text-indent: 0px; text-transform: none; white-space: normal;
+        widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;
+        background-color: rgb(255, 255, 255);">java.util.List</code><span
+        style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; display: inline !important;
+        float: none; background-color: rgb(255, 255, 255);">) etteantud
+        vahemiku kahendpistemeetodil (s.t. pistemeetodil, mille korral
+        pistekoht leitakse kahendotsimise abil). Realiseerida see meetod
+        stabiilsena (s.t tuleb säilitada võrdsete elementide korral
+        nende esialgne omavaheline järjestus). Meetodi parameetriteks on
+        järjestatav list a, vahemiku algusindeks left (kaasa arvatud)
+        ning lõpuindeks right (välja arvatud).<span
+          class="Apple-converted-space">&nbsp;</span></span><br
+        style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; background-color: rgb(255, 255,
+        255);">
+      <span style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; display: inline !important;
+        float: none; background-color: rgb(255, 255, 255);">Listi tohib
+        muuta ainult etteantud vahemiku piires.<span
+          class="Apple-converted-space">&nbsp;</span></span><br
+        style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; background-color: rgb(255, 255,
+        255);">
+      <br style="color: rgb(34, 34, 34); font-family: Verdana, Arial,
+        sans-serif; font-size: small; font-style: normal; font-variant:
+        normal; font-weight: normal; letter-spacing: normal;
+        line-height: 16.0029983520508px; orphans: auto; text-align:
+        left; text-indent: 0px; text-transform: none; white-space:
+        normal; widows: auto; word-spacing: 0px;
+        -webkit-text-stroke-width: 0px; background-color: rgb(255, 255,
+        255);">
+      <code style="margin: 0px; padding: 0px; font-style: normal;
+        font-weight: normal; font-family: monospace; line-height: 12px;
+        color: rgb(34, 34, 34); font-variant: normal; letter-spacing:
+        normal; orphans: auto; text-align: left; text-indent: 0px;
+        text-transform: none; white-space: normal; widows: auto;
+        word-spacing: 0px; -webkit-text-stroke-width: 0px;
+        background-color: rgb(255, 255, 255);">public static &lt;T
+        extends Object &amp; Comparable&lt;? super T&gt;&gt;<span
+          class="Apple-converted-space">&nbsp;</span><br>
+        &nbsp; &nbsp; &nbsp; void binaryInsertionSort (List&lt;T&gt; a,
+        int left, int right)</code><br>
+      <br>
+      Need meetodid on <a
+        href="http://enos.itcollege.ee/%7Ejpoial/algoritmid/searchsort.html">loengul</a>
+      käsitletud. Meetod tuleb realiseerida stabiilsena (säilitada
+      võrdsete elementide korral nende esialgne omavaheline järjestus).
+      <br>
+      <br>
+    </div>
+    <div style="margin-left: 40px;">Korraldada "aus võistlus" meetodite
+      vahel, mõõtes lahendamisaega <b>ühe ja sama</b> juhusliku
+      listi&nbsp; järjestamiseks erinevate meetoditega: pistemeetodil,
+      kahendpistemeetodil (teie koostatud programm), kiirmeetodil ja
+      Java APIs sisalduva meetodiga. <br>
+    </div>
+    <p style="margin-left: 40px;"> Andmemahud olgu näiteks&nbsp; 64000,
+      128000, 256000 ja 512000 elementi. Koostada lahendusaegadest tabel
+      (soovitavalt "vanas" xls-formaadis) ja joongraafik, millel
+      paigutada samasse teljestikku kõik neli joont (lahendamisaja
+      sõltuvus andmemahust erinevate meetodite korral): x-teljel on
+      andmemaht, y-teljel lahendusaeg.<br>
+    </p>
+    <p style="margin-left: 40px;">Mõõta ainult järjestamiseks kuluvat
+      aega iga meetodi jaoks võimalikult segamatult. Parema tulemuse
+      saate, kui teete mitu mõõtmist ning leiate tulemustest keskmise. </p>
+    <p style="margin-left: 40px;"> </p>
+    <p style="margin-left: 40px;"><span style="font-weight: bold;">Tähtaeg
+on
+        teie rühma materjalide juures <a
+          href="https://moodle.hitsa.ee/">Moodle</a>'s</span><span
+        style="font-weight: bold; color: rgb(204, 0, 0);"></span><span
+        style="color: rgb(204, 0, 0);"><span style="color: rgb(0, 0,
+          0);">, lahendused saata Moodle kaudu: programm automaattestina
+          ja tabel/graafikud Excel failina.<br>
+        </span></span><b><span style="color: rgb(204, 0, 0);"></span><br>
+      </b>Õigeaegse ja korrektse lahenduse eest kuni 6 punkti (3 -
+      kahendpistemeetod, 3 - tabelid ja graafikud).<br>
+    </p>
+    <div style="margin-left: 40px;">
+      <hr style="width: 100%; height: 2px;">Jaanus Pöial<br>
+      <br>
+      <br>
+    </div>
+    <br>
+    <br>
+  </body>
+</html>
