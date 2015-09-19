@@ -115,8 +115,34 @@ public class SortingTask {
     */
    public static <T extends Object & Comparable<? super T>>
     void binaryInsertionSort (List<T> a, int left, int right) {
-      // TODO!!! Your code here!
+	      if (a.size() < 2) return;
+	      if ((right-left)<2) return;
+	      for (int i = left+1; i < right; i++) {
+	         T b = a.remove (i);
+	         int j = binarySearch(a, b);
+//	         for (j=left; j < i; j++) {
+//	            if (b.compareTo (a.get (j)) < 0) break;
+//	         }
+	         a.add (j, b); // insert b to position j
+	      }
    } // binaryInsertionSort()
+   
+   public static <T extends Object & Comparable<? super T>>
+   	int binarySearch(List<T> a, T e){
+	   int j = -1;
+	   int l = 0;              // vasakpoolne otspunkt
+	   int r = a.size() - 1;   // parempoolne otspunkt
+	   while (l <= r) {
+		   j = (l + r) / 2;
+		   if (e.compareTo (a.get (j)) == 0)
+			   return j;
+	       if (e.compareTo (a.get (j)) > 0)
+	           l = j+1; // vasak otspunkt nihkub paremale
+	       else
+	           r = j-1; // parem otspunkt nihkub vasakule
+	   };
+	   return -1;
+   }
 
    /**
     * Sort a part of the list of comparable elements using insertion sort.
