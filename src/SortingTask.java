@@ -119,7 +119,7 @@ public class SortingTask {
 	      if ((right-left)<2) return;
 	      for (int i = left+1; i < right; i++) {
 	         T b = a.remove (i);
-	         int j = binarySearch(a, b);
+	         int j = binarySearch(a, b, 0, i);
 //	         for (j=left; j < i; j++) {
 //	            if (b.compareTo (a.get (j)) < 0) break;
 //	         }
@@ -128,20 +128,31 @@ public class SortingTask {
    } // binaryInsertionSort()
    
    public static <T extends Object & Comparable<? super T>>
-   	int binarySearch(List<T> a, T e){
-	   int j = -1;
-	   int l = 0;              // vasakpoolne otspunkt
-	   int r = a.size() - 1;   // parempoolne otspunkt
-	   while (l <= r) {
-		   j = (l + r) / 2;
-		   if (e.compareTo (a.get (j)) == 0)
-			   return j;
-	       if (e.compareTo (a.get (j)) > 0)
-	           l = j+1; // vasak otspunkt nihkub paremale
-	       else
-	           r = j-1; // parem otspunkt nihkub vasakule
-	   };
-	   return -1;
+   	int binarySearch(List<T> a, T sought, int low, int high){
+//	      int j = -1;
+//	      int l = 0;              // vasakpoolne otspunkt
+//	      int r = a.size() - 1;   // parempoolne otspunkt
+//	      while (l <= r) {
+//	         j = (l + r) / 2;
+//	         if (e.compareTo ((Comparable)a.get (j)) == 0)
+//	            return j;
+//	         if (e.compareTo ((Comparable)a.get (j)) > 0)
+//	            l = j+1; // vasak otspunkt nihkub paremale
+//	         else
+//	            r = j-1; // parem otspunkt nihkub vasakule
+//	      };
+//	      return -1;
+	   if(low == high)return low;
+	   
+	   int middle = (high+low)/2;
+	   
+	   if(sought.compareTo(a.get(middle)) > 0)
+		   return binarySearch(a, sought, middle+1, high);
+	   
+	   if(sought.compareTo(a.get(middle)) < 0)
+		   return binarySearch(a, sought, low, middle);
+	
+	   return middle;
    }
 
    /**
