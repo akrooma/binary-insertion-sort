@@ -7,6 +7,22 @@ public class SortingTask {
 
    /** Main method. */
    static public void main (String[] args) {
+//	   List<Integer> integerList = new ArrayList<Integer>();
+//	   
+//	   integerList.add(5);
+//	   integerList.add(0);
+//	   integerList.add(5);
+//	   integerList.add(4);
+//	   integerList.add(5);
+//	   integerList.add(2);
+//	   
+//	   binaryInsertionSort(integerList, 0, integerList.size());
+//	   
+//	   System.out.println("-------------------------------");
+//	   for (int i = 0; i < integerList.size(); i++) {
+//		   System.out.println(integerList.get(i));
+//	   }
+	   
       List<Integer> randlist = new ArrayList<Integer> (MAX); // original
       Random generaator = new Random();
       int maxKey = Math.min (1000, (MAX+32)/16);
@@ -115,42 +131,54 @@ public class SortingTask {
     */
    public static <T extends Object & Comparable<? super T>>
     void binaryInsertionSort (List<T> a, int left, int right) {
-	      if (a.size() < 2) return;
-	      if ((right-left)<2) return;
-	      for (int i = left+1; i < right; i++) {
-	         T b = a.remove (i);
-	         int j = binarySearch(a, b, 0, i);
-//	         for (j=left; j < i; j++) {
-//	            if (b.compareTo (a.get (j)) < 0) break;
-//	         }
-	         a.add (j, b); // insert b to position j
-	      }
+	   if (a.size() < 2) return;
+	   if ((right-left)<2) return; 
+	   for (int i = left+1; i < right; i++) {
+//		  System.out.println("Item from position -- " + i);
+	      T item = a.remove (i);
+//	      System.out.println("Item to be sorted -- " + item);
+//	      System.out.println("Binarysearch Left is -- " + left + " ... and i is -- " + i); 
+	      int j = binarySearch(a, item, left, i);
+	      a.add (j, item); // insert b to position j
+//	      System.out.println("Insertionpoint is -- " + j);
+//	      System.out.println("New array is --");
+//	      for (int j2 = 0; j2 < a.size(); j2++) {
+//			System.out.print(a.get(j2)+ ", ");
+//			
+//	      }
+//	      System.out.println();
+//	      System.out.println("--- :Next iteration: ---");
+	   }      
    } // binaryInsertionSort()
+   
+//   public static <T extends Object & Comparable<? super T>>
+//	int binarySearch(List<T> a, T sought, int low, int high){
+//	   
+//   }
    
    public static <T extends Object & Comparable<? super T>>
    	int binarySearch(List<T> a, T sought, int low, int high){
-//	      int j = -1;
-//	      int l = 0;              // vasakpoolne otspunkt
-//	      int r = a.size() - 1;   // parempoolne otspunkt
-//	      while (l <= r) {
-//	         j = (l + r) / 2;
-//	         if (e.compareTo ((Comparable)a.get (j)) == 0)
-//	            return j;
-//	         if (e.compareTo ((Comparable)a.get (j)) > 0)
-//	            l = j+1; // vasak otspunkt nihkub paremale
-//	         else
-//	            r = j-1; // parem otspunkt nihkub vasakule
-//	      };
-//	      return -1;
-	   if(low == high)return low;
+	   if(low == high){
+//		   System.out.println("Value low was returned -- " + low);
+		   return low;
+	   }
+	   int middle = low + ((high-low)/2);
+//	   System.out.println("Middle is -- " + middle);
 	   
-	   int middle = (high+low)/2;
-	   
+//	   System.out.println(sought.compareTo(a.get(middle)));
 	   if(sought.compareTo(a.get(middle)) > 0)
 		   return binarySearch(a, sought, middle+1, high);
 	   
 	   if(sought.compareTo(a.get(middle)) < 0)
 		   return binarySearch(a, sought, low, middle);
+	   
+	   if (sought.compareTo(a.get(middle)) == 0) {
+		   for (int i = middle; i < a.size(); i++) {
+			   if (sought.compareTo(a.get(i)) != 0) {
+				   return i;
+			   }
+		   }
+	   }
 	
 	   return middle;
    }
