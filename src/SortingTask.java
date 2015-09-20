@@ -134,38 +134,19 @@ public class SortingTask {
 	   if (a.size() < 2) return;
 	   if ((right-left)<2) return; 
 	   for (int i = left+1; i < right; i++) {
-//		  System.out.println("Item from position -- " + i);
 	      T item = a.remove (i);
-//	      System.out.println("Item to be sorted -- " + item);
-//	      System.out.println("Binarysearch Left is -- " + left + " ... and i is -- " + i); 
 	      int j = binarySearch(a, item, left, i);
 	      a.add (j, item); // insert b to position j
-//	      System.out.println("Insertionpoint is -- " + j);
-//	      System.out.println("New array is --");
-//	      for (int j2 = 0; j2 < a.size(); j2++) {
-//			System.out.print(a.get(j2)+ ", ");
-//			
-//	      }
-//	      System.out.println();
-//	      System.out.println("--- :Next iteration: ---");
 	   }      
    } // binaryInsertionSort()
-   
-//   public static <T extends Object & Comparable<? super T>>
-//	int binarySearch(List<T> a, T sought, int low, int high){
-//	   
-//   }
    
    public static <T extends Object & Comparable<? super T>>
    	int binarySearch(List<T> a, T sought, int low, int high){
 	   if(low == high){
-//		   System.out.println("Value low was returned -- " + low);
 		   return low;
 	   }
 	   int middle = low + ((high-low)/2);
-//	   System.out.println("Middle is -- " + middle);
 	   
-//	   System.out.println(sought.compareTo(a.get(middle)));
 	   if(sought.compareTo(a.get(middle)) > 0)
 		   return binarySearch(a, sought, middle+1, high);
 	   
