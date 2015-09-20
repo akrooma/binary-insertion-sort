@@ -154,13 +154,14 @@ public class SortingTask {
 		   return binarySearch(a, sought, low, middle);
 	   
 	   if (sought.compareTo(a.get(middle)) == 0) {
-		   for (int i = middle; i < a.size(); i++) {
+		   for (int i = middle; i <= high; i++) {
 			   if (sought.compareTo(a.get(i)) != 0) {
 				   return i;
+			   } else if (i == high) {
+				   return ++i;
 			   }
 		   }
 	   }
-	
 	   return middle;
    }
 
