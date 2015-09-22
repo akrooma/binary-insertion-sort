@@ -140,11 +140,13 @@ public class SortingTask {
 	   }      
    } // binaryInsertionSort()
    
+   //http://jeffreystedfast.blogspot.com.ee/2007/02/binary-insertion-sort.html
+   //Binary searchi kohta uurisin ülevalt saidi pealt.
    public static <T extends Object & Comparable<? super T>>
    	int binarySearch(List<T> a, T sought, int low, int high){
-	   if(low == high){
+	   if(low == high)
 		   return low;
-	   }
+
 	   int middle = low + ((high-low)/2);
 	   
 	   if(sought.compareTo(a.get(middle)) > 0)
@@ -154,16 +156,16 @@ public class SortingTask {
 		   return binarySearch(a, sought, low, middle);
 	   
 	   if (sought.compareTo(a.get(middle)) == 0) {
-		   for (int i = middle; i <= high; i++) {
+		   for (int i = middle; i < high; i++) {
 			   if (sought.compareTo(a.get(i)) != 0) {
-				   return i;
-			   } else if (i == high) {
-				   return ++i;
+				   return i;  
+			   } else if ((i+1) == high) {
+				   return high;
 			   }
 		   }
 	   }
 	   return middle;
-   }
+   }//binarySearch()
 
    /**
     * Sort a part of the list of comparable elements using insertion sort.
